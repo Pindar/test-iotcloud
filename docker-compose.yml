@@ -22,3 +22,14 @@ grafana:
     - "3000:3000"
   links:
     - influxdb
+
+testwriteservice:
+  image: pindar/test-write-service
+  links:
+    - influxdb
+    - kafka
+
+testingress:
+  image: pindar/test-ingress
+  links:
+    - kafka
